@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:syncfusion="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid"
+             x:Class="SB_MAUI.MainPage">
+
+    <ScrollView>
+
+
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center">
+
+
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                
+                    <Button
+                        Grid.Column="0"
+                        x:Name="EditEntryBtn"
+                        Text="Edit Entry"
+                        SemanticProperties.Hint="Edit the Current Entry"
+                        Clicked="OnEditEntryClicked"
+                        HorizontalOptions="Center" />
+
+                    <Button
+                        Grid.Column="1"
+                        x:Name="NewBtn"
+                        Text="Make New Entry"
+                        SemanticProperties.Hint="Creates New Entry"
+                        Clicked="OnNewClicked"
+                        HorizontalOptions="Center" />
+
+
+
+                </Grid>
+
+
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+
+                <Button
+                    Grid.Column="0"
+                    x:Name="SaveBtn"
+                    Text="Save Entries"
+                    SemanticProperties.Hint="Saves All Entries"
+                    Clicked="OnSaveClicked"
+                    HorizontalOptions="Center" />
+
+                <Button
+                    Grid.Column="1"
+                    x:Name="UploadBtn"
+                    Text="Upload to Cloud"
+                    SemanticProperties.Hint="Uploads to Cloud"
+                    Clicked="OnUploadClicked"
+                    HorizontalOptions="Center" />
+            </Grid>
+
+            <Label
+                Text="Leaderboard"
+                SemanticProperties.HeadingLevel="Level2"
+                SemanticProperties.Description="Leaderboard"
+                FontSize="18"
+                HorizontalOptions="Center" />
+
+            <syncfusion:SfDataGrid x:Name="dataGrid" 
+                                   ItemsSource="{Binding Entries}" 
+                                   AutoGenerateColumnsMode="None"
+                                   SortingMode="Single"
+                                   GridLinesVisibility="Both"
+                                   SelectionMode="Single"
+                                   SelectedRow="{Binding CurrentContestEntry}"
+                                   BackgroundColor="LightGray"
+                                   ColumnWidthMode="None"  
+                                   >
+                
+
+                    <syncfusion:SfDataGrid.Columns>
+                    <syncfusion:DataGridTextColumn  HeaderText="Name" 
+                                                    MappingName="Name"
+                                                    Width="150"
+                                                    />
+                    <syncfusion:DataGridNumericColumn HeaderText="AB"  
+                                                      MappingName="A_to_B"
+                                                      Width="60"
+                                                      Format="##.#"
+                                                      />
+                    <syncfusion:DataGridNumericColumn HeaderText="BC"
+                                                      MappingName="B_to_C"
+                                                      Width="60"
+                                                      Format="##.#"
+                                                      />
+                    <syncfusion:DataGridNumericColumn HeaderText="CA"
+                                                      MappingName="C_to_A"
+                                                      Width="60"
+                                                      Format="##.#"
+                                                      />
+                    <syncfusion:DataGridNumericColumn HeaderText="Area"
+                                                      MappingName="Area"/>
+                </syncfusion:SfDataGrid.Columns>
+                    
+            </syncfusion:SfDataGrid>
+
+
+
+            <Label Text=""/>
+            <Label Text=""/>
+            <Label Text=""/>
+            <Label Text=""/>
+            <Label Text=""/>
+            <Label Text=""/>
+            <Label Text=""/>
+            <Label Text=""/>
+            <Label Text=""/>
+
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+
+
+                <Button
+                    x:Name="SimLeaderboardBtn"
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    BackgroundColor="Red"
+                    TextColor="White"
+                    Text="Simulate the Leaderboard"
+                    SemanticProperties.Hint="Simulate the Leaderboard"
+                    Clicked="OnSimLeaderboardClicked"
+                    HorizontalOptions="Center" />
+
+
+                <Button
+                    x:Name="LoadBtn"
+                    Grid.Column="0"
+                    Grid.Row="1"
+                    Text="Load Entries"
+                    SemanticProperties.Hint="Load All Entries from Storage"
+                    Clicked="OnLoadClicked"
+                    HorizontalOptions="Center" />
+
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    x:Name="DeleteAllBtn"
+                    BackgroundColor="Red"
+                    TextColor="White"
+                    Text="DELETE ALL"
+                    SemanticProperties.Hint="Load All Entries from Storage"
+                    Clicked="OnDeleteAllClicked"
+                    HorizontalOptions="Center" />
+
+                <Button
+                    Grid.Column="2"
+                    Grid.Row="1"
+                    x:Name="CredEditBtn"
+                    BackgroundColor="Green"
+                    TextColor="White"
+                    Text="AWS Cred Edit"
+                    SemanticProperties.Hint="Edit AWS Credentials"
+                    Clicked="OnCredEditClicked"
+                    HorizontalOptions="Center" />
+
+
+            </Grid>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

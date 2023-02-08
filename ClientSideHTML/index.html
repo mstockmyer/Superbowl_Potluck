@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>FY23 Superbowl Potluck Leaderboard</title>
+    <style>
+        body {
+          background-color: linen;
+        }
+        
+        h1 {
+          color: maroon;
+          margin-left: 40px;
+        }
+
+        .styled-table {
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.9em;
+            font-family: sans-serif;
+            min-width: 400px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .styled-table tbody tr {
+            border-bottom: 1px solid #dddddd;
+        }
+
+        .styled-table th,
+        .styled-table td {
+            padding: 12px 15px;
+        }
+
+        .styled-table thead tr {
+            background-color: #009879;
+            color: #ffffff;
+            text-align: left;
+        }
+
+        .styled-table tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+
+        .styled-table tbody tr:last-of-type {
+            border-bottom: 2px solid #009879;
+        }
+
+
+        td {
+            text-align: center;
+        }
+
+        </style>
+
+</head>
+<body>
+
+    <h1>FY23 Superbowl Potluck Leaderboard</h1>
+    
+    <table class="styled-table">
+        <tr>
+            <th>Team Name</th>
+            <th>A to B Length</th>
+            <th>B to C Length</th>
+            <th>C to A Length</th>
+            <th>Area</th>
+
+            <tbody id="EntryTable">
+
+            </tbody>
+        </tr>
+    </table>
+    
+    <img src="https://fox4kc.com/wp-content/uploads/sites/16/2023/01/AP23030256647413-1.jpg" style='height: 100%; width: 100%; object-fit: contain'/> 
+
+
+<script type="text/javascript">
+
+
+fetch('./FY23ContestStatus.json', {
+    method: 'GET',
+    headers: {
+        'Accept': 'application/json',
+    },
+})
+.then(response => response.json())
+.then(response => buildTable(response))
+
+
+function buildTable(data)
+{   
+    var table = document.getElementById('EntryTable')
+
+    for (var i=0; i<data.length; i++)
+    {
+        var row = '<tr>';
+            row += '    <td>' + data[i].Name + '</td>';
+            row += '    <td>' + data[i].A_to_B + '</td>';
+            row += '    <td>' + data[i].B_to_C + '</td>';
+            row += '    <td>' + data[i].C_to_A + '</td>';
+            row += '    <td>' + data[i].Area + '</td>';
+            row += '</tr>';
+
+        table.innerHTML += row;
+    }
+
+}
+
+
+
+</script>
+
+
+</body>
+</html>
