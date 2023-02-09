@@ -127,6 +127,7 @@
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
+                    <RowDefinition Height="30"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
@@ -138,40 +139,17 @@
 
 
                 <Button
-                    x:Name="SimLeaderboardBtn"
-                    Grid.Column="0"
-                    Grid.Row="0"
-                    BackgroundColor="Red"
-                    TextColor="White"
-                    Text="Simulate the Leaderboard"
-                    SemanticProperties.Hint="Simulate the Leaderboard"
-                    Clicked="OnSimLeaderboardClicked"
-                    HorizontalOptions="Center" />
-
-
-                <Button
                     x:Name="LoadBtn"
                     Grid.Column="0"
-                    Grid.Row="1"
+                    Grid.Row="0"
                     Text="Load Entries"
                     SemanticProperties.Hint="Load All Entries from Storage"
                     Clicked="OnLoadClicked"
                     HorizontalOptions="Center" />
 
                 <Button
-                    Grid.Row="0"
-                    Grid.Column="1"
-                    x:Name="DeleteAllBtn"
-                    BackgroundColor="Red"
-                    TextColor="White"
-                    Text="DELETE ALL"
-                    SemanticProperties.Hint="Load All Entries from Storage"
-                    Clicked="OnDeleteAllClicked"
-                    HorizontalOptions="Center" />
-
-                <Button
                     Grid.Column="2"
-                    Grid.Row="1"
+                    Grid.Row="0"
                     x:Name="CredEditBtn"
                     BackgroundColor="Green"
                     TextColor="White"
@@ -180,6 +158,28 @@
                     Clicked="OnCredEditClicked"
                     HorizontalOptions="Center" />
 
+                <Button
+                    x:Name="SimLeaderboardBtn"
+                    Grid.Column="0"
+                    Grid.Row="2"
+                    Grid.ColumnSpan="2"
+                    BackgroundColor="Red"
+                    TextColor="White"
+                    Text="Simulate the Leaderboard"
+                    SemanticProperties.Hint="Simulate the Leaderboard"
+                    Clicked="OnSimLeaderboardClicked"
+                    HorizontalOptions="Center" />
+
+                <Button
+                    Grid.Row="2"
+                    Grid.Column="2"
+                    x:Name="DeleteAllBtn"
+                    BackgroundColor="Red"
+                    TextColor="White"
+                    Text="DELETE ALL"
+                    SemanticProperties.Hint="Load All Entries from Storage"
+                    Clicked="OnDeleteAllClicked"
+                    HorizontalOptions="Center" />
 
             </Grid>
 
