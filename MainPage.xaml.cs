@@ -62,9 +62,14 @@ public partial class MainPage : ContentPage
 
     private async void OnDeleteAllClicked(object sender, EventArgs e)
     {
-        if( false == await VM.DeleteAllAsync())
+        bool answer = await DisplayAlert("Delete All Data?", "Would you like to delete all the current live contest entries?", "Yes", "No");
+
+        if (answer == true)
         {
-            await DisplayAlert("Delete All Failed", $"Attempt to delete all data from local storage failed.", "OK");
+            if (false == await VM.DeleteAllAsync())
+            {
+                await DisplayAlert("Delete All Failed", $"Attempt to delete all data from local storage failed.", "OK");
+            }
         }
     }
 
